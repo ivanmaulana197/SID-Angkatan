@@ -38,7 +38,7 @@
                     <div class="card-body">
                         <div class="avatar avatar-5xl shadow-sm img-thumbnail rounded-circle">
                             <div class="h-100 w-100 rounded-circle overflow-hidden position-relative">
-                                <img src="{{ old('foto', $user->foto) }}" id="img-preview" width="200" alt="profile" data-dz-thumbnail="data-dz-thumbnail">
+                                <img src="{{ config('url').'/'.old('foto', $user->foto) }}" id="img-preview" width="200" alt="profile" data-dz-thumbnail="data-dz-thumbnail">
                                 <input class="d-none" id="profile-image" type="file" name="foto">
                                 <label class="mb-0 overlay-icon d-flex flex-center" for="profile-image">
                                     <span class="bg-holder overlay overlay-0"></span>
@@ -92,7 +92,7 @@
 @push('js')
     <script>
         $(document).ready(function() {
-            var foto = "{{ old('foto', $user->foto) }}";
+            var foto = "{{ config('url').'/'.old('foto', $user->foto) }}";
             if (foto) {
                 $('#img-preview').attr('src', foto);
             }
